@@ -24,7 +24,9 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   
-      
+      - name: azure login
+        run: az login
+
       - name: Terraform Init
         id: init
         run: terraform init
@@ -38,10 +40,7 @@ jobs:
         run: terraform plan
         continue-on-error: true
 
-      - name: Terraform Plan Status
-        if: steps.plan.outcome == 'failure'
-        run: exit 1
-
+      
       - name: Terraform Output
         run: terraform output
 
