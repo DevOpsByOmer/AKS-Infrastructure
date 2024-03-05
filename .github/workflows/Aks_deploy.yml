@@ -32,22 +32,15 @@ jobs:
             az login
   
 
-      - name: Terraform Init
-        id: init
+      - name: Terraform Initiliza
         run: terraform init
       
       - name: Terraform Validate
-        id: validate
         run: terraform validate
 
       - name: Terraform Plan
-        id: plan
         run: terraform plan
-        continue-on-error: true
-
-      - name: Terraform Plan Status
-        if: steps.plan.outcome == 'failure'
-        run: exit 1
+             
 
       - name: Terraform Output
         run: terraform output
