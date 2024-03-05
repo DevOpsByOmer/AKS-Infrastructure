@@ -1,15 +1,13 @@
-name: Create Azure AKS With Terraform
+name: Create Azure AKS 
 on:
   workflow_dispatch:
 
-permissions:
-      id-token: write
-      contents: read
+
 jobs: 
   AKS-Cluster-Deployment:
     env:
         ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secret.AZURE_AD_CLIENT_SECRET}}
+        ARM_CLIENT_SECRET: ${{ secret.AZURE_AD_CLIENT_SECRET }}
         ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
   
