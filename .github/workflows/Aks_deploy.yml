@@ -29,7 +29,7 @@ jobs:
         with:
            azcliversion: latest
            inlineScript: |
-            az login
+            az account
   
 
       - name: Terraform Initiliza
